@@ -35,7 +35,7 @@ pub struct MemoryArea<F: Copy, P, B: MappingBackend<F, P>> {
 
 impl<F: Copy, P, B: MappingBackend<F, P>> MemoryArea<F, P, B> {
     /// Creates a new memory area.
-    pub const fn new(start: VirtAddr, size: usize, flags: F, backend: B) -> Self {
+    pub fn new(start: VirtAddr, size: usize, flags: F, backend: B) -> Self {
         Self {
             va_range: VirtAddrRange::from_start_size(start, size),
             flags,
@@ -65,7 +65,7 @@ impl<F: Copy, P, B: MappingBackend<F, P>> MemoryArea<F, P, B> {
     }
 
     /// Returns the size of the memory area.
-    pub const fn size(&self) -> usize {
+    pub fn size(&self) -> usize {
         self.va_range.size()
     }
 
